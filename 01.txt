@@ -1,0 +1,256 @@
+
+
+1.VMware Workstation12.5         http://tts.tmooc.cn/studentCenter/toMyttsPage  学习网站     笔记网站  code.tarena.com.cn             笔记：   tarenacode      code_2017    
+                       
+                                        python.org  https://www.cnblogs.com/SharkBin/p/3992611.html  命令  67.35
+1.下载并安装                       uc.tmooc.cn                                           ftp://   172.88.020  aid1811  tarena
+
+
+2.下载Linux操作系统的镜像文件.iso（纯净版  安装包)   Ubuntu 16.04.3			https://blog.csdn.net/qq_30993595/article/details/80344312卸载与安装
+
+3.打开VMware Workstation  文件  -》 新建虚拟机（组装电脑）                   github.com  下载素材系统
+
+ 然后  下一步     稍后安装   20 下一步  组装完
+4. cd/dvd  -》插入光盘   2   2048  CPU   1 2
+
+5.开启此虚拟机 -》通电开机
+点下cd/dvd    点击使用镜像文件  ubu的路径  
+文字找到中文简体     安装ubu  
+您是谁   用户 tarena  密码如同                                         网址  www.tmooc.cn                                            python官网   www.python.org
+                                                                    账号      aid1810n_pm@tedu.cn
+                                                                   密码  tMooc2018TTS
+
+企业版：NJVYC-BMHX2-G77MM-4XJMR-6Q8QF 
+
+专业版：KBJFW-NXHK6-W4WJM-CRMQB-G3CDH
+
+
+
+
+
+
+
+6.安装完成后 再安装一系列的软件、模块                     http://uc.tmooc.cn/user/activate?ac=YzJuO3c3YjZxNW42bTdxM3g6bTJ3Q21yeHJSVkNXR1tZQUFcNxwJTQ0YDw%3D%3D
+
+
+Linux基础
+  1. 终端  ：用来输入Linux命令 
+2.目录树
+1.根   /： 代表文件系统的起始位置  
+2. 路径： ： 代表一个文件/目录的字符串
+
+3.Linux 命令基本格式
+  命令名  [选项][参数] #[]代表里面内容可有可无
+
+4.Linux
+1. pwd： 显示所在的路径 
+2.ls 显示目录的详细内容（文件 子目录）
+3.路径
+4.cd  ：切换目录，路径
+ 1.用法
+    cd 路径(绝对，相对路径)      
+       cd /home/tarena 
+ctrl+c  终止你所写的（加在你所写的目录后面）
+cd .. 返回上一级目录       cd ../..  回两级目录      cd 目录/  返回目录(前提是在主目录下)
+
+ 2. cd直接回车：   回到用户主目录   
+    cd ~           返回用户主目录
+    cd -       切换最近两次的路径
+
+3.TAB自动补齐命令  /路径
+
+
+5.mkdir 创建一个或多个目录
+    1.格式： mkdir  目录名1  目录名2  
+    2.常用选项
+         mkdir -p ：逐层创建目录 one/two/three/go
+      3如果说中间目录不存在 直接创建
+            cd
+            mkdir  one
+            cd one
+            mkdir two 
+             cd two
+             mkdir three
+
+6.touch             ls -l   或者后面加上文件名  查看文件时间
+ 1.作用
+    1.文件不存在 ->创建
+    2. 文件存在-> 用系统时间更新文件修改时间
+
+ 2.格式 ：touch 文件名1 文件名2 文件名3  想要往那touch 先cd过去
+
+
+ 7.技巧类       history翻出历史 想用  ！+编号
+   1.自动补齐 TAB
+   2. 翻出历史执行命令  上下键
+   3.ctrl+l   或者clear
+   4.终止命令执行   ctrl+c
+   5.终端字体放大：ctrl+shift+“+”
+   6.终端字体缩小： ctrl+“-”  
+ 
+9.  rm :  (remove) 删除文件/目录
+        1.rm 选项 文件/目录
+         - r  ：删除全部文件/目录
+         - f  ：强制删除，不给任何提示
+         - i  ：
+        rm -rf 文件名/目录名    rm-rf *  删除所有
+
+     文本编辑vi/vim
+
+   1.格式：vi 文件名      cat 文件名   查看   插入（a/i/o）
+        1.格式： vi文件名
+        2. vi的三种工作模式   
+             1.浏览模式：启动 时进入 不能编辑文本
+             2.插入模式（ a/i/o） 编辑文本
+             3.命令模式（ESC-》 shift + ：）：保存退出
+        3.文本写入步骤
+             1.vi文件名
+             2.按 a/i/o： 编辑文本
+             3. 按ESC 
+             4. 按shift + ：   ——》命令行模式
+             5.  wq ：保存退出
+                 q！ ：不保存
+                 w：保存
+
+安装软件： 搜g    chrome浏览器
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Day02 笔记
+
+1. Linux命令
+
+    1.cp：复制文件  / 目录
+      
+      1.复制文件 ： cp 源文件 路径
+      2.复制目录 ： cp -r 源目录/ 路径   
+      3. cp *.txt /home/tarent/文件夹
+
+    2. mv：剪切/重命名
+
+       1.剪切： mv 文件名 路径
+                mv 目录名 路径
+       
+       2.重命名 ： mv 文件名1 文件名2   （在当前目录里）
+                   mv 目录名1 目录名2
+
+    3. cat ： 查看文件内容
+        
+           cat 文件名
+      
+    4.tar ：打包并压缩          （）
+      
+      1.  格式
+           
+            tar -zcvf 压缩包名字(格式最多的叫法.tar.gz) 需要压缩的文件的名字或目录
+          
+            -z： 用gzip对包进行压缩
+           
+            -c： 创建包（create）
+           
+            -v： 显示明细（verbose）
+            
+            -f： file
+
+      2.解压缩
+  
+      tar -zxvf 压缩包名字.tar.gz -C    （-C指定解压路径）
+      
+       -C ： 指定解压路径，不写默认解压到当前目录
+
+
+ 
+
+
+
+5.文件权限
+ 
+      1.查看 ： ls -l 文件名             例如： ls -l A.txt
+                  -rw-rw-- l tarent 2 （大小） 16.4  A.txt
+
+       2. 最左侧的一列 ：  -代表类型
+           
+          1.  d ：目录
+          2.  - ：文件
+          3.  l ： 链接 （link）      
+        
+        3.权限
+
+           r ：读
+           w ： 写（编辑）
+           x ： 可执行
+         4. rwx权限分组
+      
+            第一组： 文件所有者权限
+            第二组： 同组用户对文件权限            
+            第三组： 其他组用户队文件权限
+
+         
+
+
+6. chmod   :修改文件权限
+  
+         1. 方式一：
+             1. 给所有用户添加相关权限
+           chmod +x/-w/+rwx/——wx A.txt
+          2.给指定组用户修改权限
+
+              chmod +x/-w/+rwx/ A..txt
+             例如：   chmod u+x A..txt        g+x     o-r  （中间部分  o代表other其他的意思）
+
+           a ：所有用户（all）
+           u： 所有者（user）
+           g： 同组用户 group
+           o：其他用户 other
+
+       2. 方式二 通过数字方式修改
+           chmod 644 A.txt  ： rw-r--r--
+
+                     
+           r ：4               x，y
+           w ：2               x ，y
+           x ： 1
+
+                 .  代表当前目录  用法 如 ./ 代表在当前目录下执行
+
+
+
+
+          2.Linux  ： 修改文件权限
+         
+             1.sudo： 获取root用户的权限执行Linux命令
+            
+                cd /
+                touch A ： 提示权限不够、
+                 ##  只要权限不够就加
+                 
+             2.df     查看磁盘
+              3.top    任务管理器
+
+            4.  ps           查看pid  进程
+        
+
+
+
+counter('f',5,11)  寻找f  从5到10找
+s.find('123')   返回-1 查找失败  负责返回你所查找的位置索引
+s.find（‘123’，2,5） 同上
+
+
+replace（‘想替换的单词’，‘替换成’，2）2代表只替换前两个  
+ startswith（‘想判断的字母’）    
+ 
+
+d.get(5,"zhege jian bucunzai") 如是写 存在了后面的设定无用
