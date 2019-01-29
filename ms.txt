@@ -1,0 +1,170 @@
+4）库操作
+
+    查看库: show databases;
+    创建库： create database 库名称 default charset=字符集
+    示例： 创建名称为bank的库 使用utf8字符集
+            create database bank default charset=utf8
+    使用库       
+     
+        use bank 
+    
+
+
+    -进入/切换库： use 库名称;
+    e.g.  进入/切换到bank
+        use bank；
+    -查看当前所在库： select database();
+
+    -查看库中哪些表 show tables;
+
+    -删除库 drop database 库名称    
+        e.g. 删除bank
+                drop database bank；
+
+
+5)库中包含的内容
+    -库中包含表 视图（View） 索引（Index）\触发器（Trigger）
+                  存储过程（sp）\存储过程（sp）、用户     
+
+    -命名规则：
+        由字符、数字、下划线构成，不能全是数字
+        库名称必须唯一
+        避开mysql的关键字
+
+
+5） 表操作（重中之重）
+
+    a）创建表
+        create table 表名称(
+            字段1 类型(长度) 约束，
+            字段2 类型(长度) 约束，
+        ) default charset = 字符集；
+
+    e.g.  创建acct（账户）表
+    第一步：有无bank库 先创建库
+    第二步：使用use命令进入到bank库汇总
+    第三部：执行建表SQL语句
+    create table acct(
+        acct_no varchar(32),
+        acct_name varchar(128)
+    ) default charset=utf8
+
+    b)查看表结构: desc 表名称
+    e.g. 查看ecct 表结构
+        desc ecct;
+    c)查看出那个表的SQL语句：show create table 表名
+    e.g.  查看acct 建表SQL语句
+    show create table acct
+
+    d）删除表：drop table 表名
+    e.g.删除 acct表
+    drop table acct;
+7）数据操作（重点）
+
+* 需要注意的地方：
+  语句中除了注释以外  不能出现中文字符
+  括号必须匹配 并且嵌套要正确，最好成对的书写
+  date 日期类型  容易携程data
+  注意其他的拼写错误
+  最后一个分号不要忘记写 
+  注释的两个横线必须加空格
+
+    a）插入数据 insert into 表名（）；
+insert into acct 
+values('622345000001', 'Jerry', 'C0001',
+        1, now(), 1, 1000.00
+);
+
+-- 查询 
+select * from acct
+
+* 需要注意的地方：
+除了字符串内容以外 不能有中文符号
+字段的个数、类型、顺序必须和表结构一致
+字符串类型的数据使用单引号引起来
+now() 是一个系统函数 取当前数据库系统日期
+每个值之间使用英文逗号分隔
+
+示例2：使用一个SQL语句插入多笔数据
+
+b)查询数据
+-格式： select 字段列表 from 表名 where 条件
+    select * from 表名 【where 条件】
+    select 字段列表 from 表名 【where 条件】
+-示例1：查询所有数据
+    select * from acct;
+-示例2： 指定查询部分字段
+    select acct_name,balance from acct;
+-示例3; 查询指定字段 并且为字段指定别名
+    select acct_no "账号" , 
+           acct_name "户名",
+           balance "余额"
+    from acct; 
+
+示例4： 查询时，使用字段的值进行计算
+        查询账号余额 以万元为单位显示
+
+select acct_no "账号" , -- 双引号之间为别名 中间还可以加as
+       acct_name "户名",
+       balance/10000 "余额(万元)"
+from acct; 
+
+
+-- 带条件查询
+select * from acct
+where acct_no = '622345000001';
+
+-- 带两个个条件查询  两个条件同时满足
+select * from acct
+where acct_name = 'Jerry' and acct_no = '622345000001';
+
+-- 带两个条件满足一个
+select acct_name,acct_no,balance from acct
+where acct_name = 'Jerry' or acct_no = '622345000004';
+
+select * from acct
+where acct_name = 'Jerry' or acct_name = 'Ben';
+
+
+
+4.MySQL 数据类型
+    1）主要数据类型
+    -数值类型
+    -字符类型
+    -日期时间
+    -枚举类型：值相对较少 范围较固定
+
+    2）数值类型
+    -整数： TINYINT(1字节)，SMALLINT（2字节）
+            INT(4字节)  BIGINT（8字节）
+
+    -浮点数： Decimal 长度可变 精确数字 可指定小树位数
+          Decimal(16,2)表示最长16位，小数2位
+
+    3）字符串类型
+    -char：定长字符串
+        最大能保存255字符
+        如果长度不足 使用空格填充
+        超过规定长符则无法存入 
+    -varchar：可变长字符串(使用最多)
+        最大可存65535个字符
+        按照实际大小分配存储空间
+        字符超过最大长度 则无法写入
+        性能低于char类型
+    -text：大文本类型 字符量大于65535使用   
+    4) 枚举类型; enum, set
+    -eenum:从给定的范围选取一个
+    -set 从给定的范围选取一个或多个
+
+
+
+zuoyong :
+复习理解一下几个概念
+ 关系数据库、数据管理的三个阶段及特点
+元祖 属性  键 主键
+2练习和实际操作
+1）MySQL的安装  启动 停止  登录
+2）库操作：艰苦  查看 进去/切换
+3）表操作：新建 查看
+4）数据操作：插入 查询
+5）理解和正确使用所讲的数据类型
